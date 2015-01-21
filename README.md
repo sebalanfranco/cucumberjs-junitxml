@@ -1,4 +1,4 @@
-# protractor-cucumber-junit
+# Cucumberjs-junitxml
 
 Provide a cucumber-js support file and json2xml converter to generate JUnitXML file for CI
 
