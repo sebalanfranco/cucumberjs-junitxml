@@ -1,10 +1,10 @@
 // Customized reporter for cucumber-js
 // Copy this file to your cucumber support file path. E.g. features/support/reporter.js
 // Json result and report will save to features/output/
-var exec = require('child-process-close').exec;
 var fs = require('fs');
-var reportDir = process.env.TEST_RESULTS_DIR || process.cwd() + '/tests/features/output/';
-var reportJsonFilePath = process.cwd() + '/tests/features/output/cucumber_report.json';
+var junit = require('cucumberjs-junitxml');
+var reportDir = process.env.TEST_RESULTS_DIR || process.cwd() + '/tests/features/output';
+var reportFilePath = reportDir + '/cucumber-test-results.xml';
 var testResult = [];
 
 var reporterHooks = function() {
@@ -101,19 +101,10 @@ var reporterHooks = function() {
 
     // output testResult
     this.registerHandler('AfterFeatures', function(event, callback) {
-        fs.writeFile(reportJsonFilePath, JSON.stringify(testResult, null, 4), function(err) {
-            if (err) {
-                console.log(err);
-            } else {
-                // output as xml file
-                exec('cat ' + reportJsonFilePath + ' | node_modules/.bin/cucumber-junit > ' + reportDir + '/cucumber-test-results.xml');
-                // output as log
-                exec('cat ' + reportJsonFilePath + ' | node_modules/.bin/cucumber-junit');
-                // remove json result
-                //exec('rm -f ' + reportJsonFilePath);
-            }
-            callback();
-        });
+        var xml = junit(JSON.stringify(testResult), { indent: '    ' });
+        var file = fs.openSync(reportFilePath, 'w+');
+        fs.writeSync(file, xml);
+        callback();
     });
 };
 
