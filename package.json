@@ -1,6 +1,6 @@
 {
   "name": "cucumberjs-junitxml",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Provide a cucumber-js support file and json2xml converter to generate JUnitXML file for CI",
   "bin": {
     "cucumber-junit": "bin/cucumber-junit"
@@ -34,7 +34,7 @@
     "child-process-close": "~0.1.1"
   },
   "homepage": "https://github.com/sonyschan/cucumberjs-junitxml",
-  "main": "index.js",
+  "main": "lib/cucumber_junit.js",
   "directories": {
     "test": "tests"
   }
