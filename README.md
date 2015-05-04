@@ -1,6 +1,6 @@
 # Cucumberjs-junitxml
 
-Provide a cucumber-js support file and json2xml converter to generate JUnitXML file for CI
+If your result.json cannot be consumed by [cucumber-junit](https://github.com/stjohnjohnson/cucumber-junit), you may want to use this package to output better json result and generate JUnitXML file for CI.
 
 ## Install
 
