@@ -1,6 +1,6 @@
 {
   "name": "cucumberjs-junitxml",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Provide a cucumber-js support file and json2xml converter to generate JUnitXML file for CI",
   "bin": {
     "cucumber-junit": "bin/cucumber-junit"
