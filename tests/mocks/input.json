@@ -68,7 +68,7 @@
                         "line": 17,
                         "keyword": "Then ",
                         "result": {
-                            "status": "undefined"
+                            "status": "skipped"
                         },
                         "match": {}
                     }

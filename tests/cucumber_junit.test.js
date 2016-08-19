@@ -18,6 +18,12 @@ Y.TestRunner.add(new Y.TestCase({
             outputXml = fs.readFileSync(path.join(__dirname, '/mocks/output.xml'));
 
         Assert.areEqual(outputXml, cucumber_junit(inputJson, { indent: '    ' }), 'XML is the same');
-    }
+    },
 
+    'strict mode': function () {
+        var inputJson = fs.readFileSync(path.join(__dirname, '/mocks/input.json')),
+            outputXml = fs.readFileSync(path.join(__dirname, '/mocks/output-strict.xml'));
+
+        Assert.areEqual(outputXml, cucumber_junit(inputJson, { indent: '    ', strict: true }), 'XML is the same');
+    }
 }));
