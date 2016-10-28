@@ -101,7 +101,7 @@ var reporterHooks = function() {
 
     // output testResult
     this.registerHandler('AfterFeatures', function(event, callback) {
-        var xml = junit(JSON.stringify(testResult), { indent: '    ' });
+        var xml = junit(JSON.stringify(testResult), { indent: '    ', strict: true });
         var file = fs.openSync(reportFilePath, 'w+');
         fs.writeSync(file, xml);
         callback();

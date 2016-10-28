@@ -6,7 +6,13 @@ If your result.json cannot be consumed by [cucumber-junit](https://github.com/st
 
 1. Copy reporter/reporter.js to your cucumber support folder
 
-2. Cucumberjs-junitxml should be added to your test codebase as a dev dependency.  You can do this with:
+2. Configure the options parameter as shown below.  If unimplemented steps should be reported as a failure, set `strict: true`, otherwise set it to `false`:
+
+``` javascript
+var xml = junit(JSON.stringify(testResult), { indent: '    ', strict: true });
+```
+
+3. Cucumberjs-junitxml should be added to your test codebase as a dev dependency.  You can do this with:
 
 ``` shell
 $ npm install cucumberjs-junitxml --save-dev 
